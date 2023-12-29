@@ -10,3 +10,7 @@ const estoque = {
 export function getEstoque(){
     return estoque;
 }
+
+export function limpaEstoque() {
+    estoque = {};
+}
