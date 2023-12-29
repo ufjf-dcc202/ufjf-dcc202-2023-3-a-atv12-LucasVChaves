@@ -6,3 +6,7 @@ const estoque = {
         {'tipo': 'maca', 'quantidade': 2},
     ],
 };
+
+export function getEstoque(){
+    return estoque;
+}
