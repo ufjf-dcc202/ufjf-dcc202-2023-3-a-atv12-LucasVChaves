@@ -1,7 +1,9 @@
-import { getEstoque, limpaEstoque, transacaoNoEstoque } from "./estoque";
+import { getEstoque, limpaEstoque, transacaoNoEstoque } from "./estoque.js";
 
 const olJoao = document.querySelector("#joao");
 const olMaria = document.querySelector("#maria");
+
+document.entrada.addEventListener('submit', leForm);
 
 function preencheLista(pessoa, lista){
     lista.innerHTML = "";
@@ -15,7 +17,29 @@ function preencheLista(pessoa, lista){
 
 function update(){
     const estoque = getEstoque();
+
+    document.entrada.fruta.value = "maca"
+    document.entrada.quantidade.value = 1
+
     preencheLista(estoque['joao'], olJoao);
     preencheLista(estoque['maria'], olMaria);
-
 }
+
+function leForm(event) {
+    event.preventDefault();
+    
+    const fruta = document.entrada.fruta.value;
+    const quantidade = document.entrada.quantidade.valueAsNumber;
+    const origem = document.entrada.origem.value;
+    const destino = document.entrada.destino.value;
+
+    transacaoNoEstoque(origem, destino, quantidade, fruta);
+    update();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('btnLimparLista').addEventListener('click', () => {
+        limpaEstoque();
+        update();
+    })
+});
