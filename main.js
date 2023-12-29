@@ -12,3 +12,10 @@ function preencheLista(pessoa, lista){
         lista.append(eLi); 
     }
 }
+
+function update(){
+    const estoque = getEstoque();
+    preencheLista(estoque['joao'], olJoao);
+    preencheLista(estoque['maria'], olMaria);
+
+}
