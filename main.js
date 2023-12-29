@@ -18,9 +18,6 @@ function preencheLista(pessoa, lista){
 function update(){
     const estoque = getEstoque();
 
-    document.entrada.fruta.value = "maca"
-    document.entrada.quantidade.value = 1
-
     preencheLista(estoque['joao'], olJoao);
     preencheLista(estoque['maria'], olMaria);
 }
